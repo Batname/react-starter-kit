@@ -76,6 +76,10 @@ const config = {
         loader: `${STYLE_LOADER}!${CSS_LOADER}!postcss-loader!less-loader`
       },
       {
+        test: /\.scss$/,
+        loader: `${STYLE_LOADER}!${CSS_LOADER}!sass-loader`
+      },
+      {
         test: /\.gif/,
         loader: 'url-loader?limit=10000&mimetype=image/gif'
       },

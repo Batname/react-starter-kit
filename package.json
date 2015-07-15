@@ -50,7 +50,10 @@
     "run-sequence": "^1.1.0",
     "style-loader": "^0.12.3",
     "url-loader": "^0.5.6",
-    "webpack": "^1.9.10"
+    "webpack": "^1.9.10",
+    "gulp-sass": "^2.0.3",
+    "node-sass": "^3.2.0",
+    "sass-loader": "^1.0.2"
   },
   "jest": {
     "rootDir": "./src",
