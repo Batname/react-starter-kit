@@ -1,6 +1,9 @@
-$color: red;
+@import "./../index.scss";
+@import "./../varables.scss";
+
 html {
-  background-color: $color;
+  @include fill-parent;
+  background-color: $white-base;
   color: #222;
   font-weight: 100;
   font-size: 1em;
