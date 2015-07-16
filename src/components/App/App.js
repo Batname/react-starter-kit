@@ -8,6 +8,7 @@ import AppActions from '../../actions/AppActions';
 import AppStore from '../../stores/AppStore';
 import Header from '../Header';
 import ContentPage from '../ContentPage';
+import Tweets from '../Tweets';
 import ContactPage from '../ContactPage';
 import LoginPage from '../LoginPage';
 import RegisterPage from '../RegisterPage';
@@ -40,6 +41,7 @@ class App {
   render() {
     let component;
     let result;
+    let sidebar = React.createElement(Tweets);
 
     switch (this.props.path) {
 
@@ -66,7 +68,10 @@ class App {
       result = (
         <div>
           <Header />
-          {component}
+          <div className="main">
+            <div className="component">{component}</div>
+            <div className="sidebar">{sidebar}</div>
+          </div>
           <Feedback />
           <Footer />
         </div>

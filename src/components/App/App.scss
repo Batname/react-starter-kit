@@ -1,11 +1,12 @@
 @import "./../index.scss";
 @import "./../varables.scss";
 
-html {
-  @include fill-parent;
-  background-color: $white-base;
-  color: #222;
-  font-weight: 100;
-  font-size: 1em;
-  line-height: 1.375;
+.main {
+  @include outer-container;
+  .component {
+    @include span-columns(8);
+  }
+  .sidebar {
+    @include span-columns(4);
+  }
 }
