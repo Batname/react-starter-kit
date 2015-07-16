@@ -7,9 +7,16 @@
  */
 
 import webpack, { DefinePlugin, BannerPlugin } from 'webpack';
+import path from 'path';
 import merge from 'lodash/object/merge';
 import autoprefixer from 'autoprefixer-core';
 import minimist from 'minimist';
+
+let sassPaths = require('node-neat').with([
+  path.resolve(__dirname, "./assets/css")
+]).map((sassPath) => {
+  return "includePaths[]=" + sassPath;
+}).join("&");
 
 const argv = minimist(process.argv.slice(2));
 const DEBUG = !argv.release;
@@ -77,7 +84,7 @@ const config = {
       },
       {
         test: /\.scss$/,
-        loader: `${STYLE_LOADER}!${CSS_LOADER}!sass-loader`
+        loader: `${STYLE_LOADER}!${CSS_LOADER}!sass-loader?${sassPaths}`
       },
       {
         test: /\.gif/,

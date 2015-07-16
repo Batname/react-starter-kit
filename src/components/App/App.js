@@ -39,6 +39,7 @@ class App {
 
   render() {
     let component;
+    let result;
 
     switch (this.props.path) {
 
@@ -61,15 +62,19 @@ class App {
         component = <RegisterPage />;
         break;
     }
-
-    return component ? (
-      <div>
-        <Header />
-        {component}
-        <Feedback />
-        <Footer />
-      </div>
-    ) : <NotFoundPage />;
+    if(component) {
+      result = (
+        <div>
+          <Header />
+          {component}
+          <Feedback />
+          <Footer />
+        </div>
+        );
+    } else {
+      result = ( <NotFoundPage /> );
+    }
+    return result;
   }
 
   handlePopState(event) {
