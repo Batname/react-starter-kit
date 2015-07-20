@@ -1,5 +1,7 @@
 import Request from '../core/Request';
 import co from 'co';
+import Dispatcher from '../core/Dispatcher';
+import TweetsTypes from '../constants/TweetsTypes';
 import 'babel/polyfill';
 
 let loadTweets = function* (urls) {
@@ -9,7 +11,10 @@ let loadTweets = function* (urls) {
     let y = urls.length;
     while(i < y){
       data = yield Request.get(urls[i]);
-      console.log(data);
+      Dispatcher.dispatch({
+        type: TweetsTypes.LOAD_TWEETS,
+        data
+      });
       i++;
     }
   }

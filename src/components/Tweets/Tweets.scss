@@ -1,3 +1,23 @@
+@import "./../index.scss";
+@import "./../varables.scss";
+
 .Tweets {
   background-color: #FAF8F2;
+  @include margin(20px);
+  .content{
+    .table{
+      min-height: 300px;
+      .highlight{
+        background:#FFFFFF;
+        @include animation(color-change 2s 1);
+        @include keyframes(color-change){
+          0% {background: #f47a33}
+          25% {background:#FDA775;}
+          50%  {background:#FDC4A2;}
+          75%  {background:#F9E3D6;}
+          100% {background:#FFFFFF;}
+        }
+      }
+    }
+  }
 }

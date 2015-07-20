@@ -1,17 +1,17 @@
 import React, {PropTypes} from 'react';
 import _ from 'lodash';
+import TweetsStore from './../../stores/TweetsStore';
+import tweetsWatchMixin from '../../mixins/tweetsWatchMixin';
 
 function getTweetsItems() {
-  return {items: [{name: 'First', message: 'First message'}, {name: 'Second', message: 'Second message'}]};
+  return {items: TweetsStore.getTweetItems()};
 }
 
 let TweetItems = {
   propTypes: {
     label: PropTypes.string
   },
-  getInitialState(){
-    return getTweetsItems();
-  },
+  mixins: [tweetsWatchMixin(getTweetsItems)],
   render() {
     let items = _.map(this.state.items, (item, i) => {
       return (
