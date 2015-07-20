@@ -23,6 +23,8 @@ const src = Object.create(null);
 let watch = false;
 let browserSync;
 
+process.env.UV_THREADPOOL_SIZE = 100;
+
 // The default task
 gulp.task('default', ['sync']);
 
